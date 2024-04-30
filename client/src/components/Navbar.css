@@ -1,0 +1,45 @@
+img{
+  width: 20%;
+  object-fit: contain;
+}
+.navbar{
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 1px 1px 5px 1px #ccc;
+}
+ul{
+  display: flex;
+  list-style: none;
+}
+li{
+  padding: 1px 15px;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+.primaryBtn {
+  background-color: #0069d9;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5%;
+  transition: background-color var(--transition-duration) ease-in-out;
+  font-size: var(--font-size);
+}
+
+.primaryBtn:hover {
+  background-color: #000bd9;
+}
+
+.primaryBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.primaryBtn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
