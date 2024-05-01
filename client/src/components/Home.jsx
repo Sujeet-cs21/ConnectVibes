@@ -149,23 +149,25 @@ export default function Home() {
         <div className="card-image">
           <img src={posts.photo} alt="" />
           </div>
+          <div className="caption">
+            <p>{posts.body}</p>
+          </div>
         {/* card-content */}
         <div className="card-content">
+          <div className="likes">
+            {posts.likes.includes(JSON.parse(localStorage.getItem("user"))._id) 
+            ? 
+            (<span className="material-symbols-outlined material-symbols-outlined-red" onClick={() => {unlikePost(posts._id);}}>
+              favorite
+              </span>)
+              : 
+            (<span className="material-symbols-outlined" onClick={() => {likePost(posts._id);}}>
+              favorite
+              </span>)
+            }
+            <p>{posts.likes.length} likes</p>
+          </div>
 
-        {posts.likes.includes(JSON.parse(localStorage.getItem("user"))._id) 
-        ? 
-            (
-              <span className="material-symbols-outlined material-symbols-outlined-red" onClick={() => {unlikePost(posts._id);}}>
-                  favorite
-                  </span>
-            ) : 
-            (
-              <span className="material-symbols-outlined" onClick={() => {likePost(posts._id);}}>
-                favorite
-              </span>
-            )}
-        <p>{posts.likes.length} likes</p>
-        <p>{posts.body}</p>
         <p style={{fontWeight:"bold",cursor:'pointer'}} onClick={()=>{toggleComment(posts)}}>view all comments</p>
         </div>
         {/* add comment */}
@@ -182,13 +184,13 @@ export default function Home() {
       <div className="showComment">
         <div className="container">
           <div className="postPic">
-            <img src={item.photo} alt="random" />
+            <img src={item.photo} alt="" />
           </div>
           <div className="details">
             {/* card-header */}
             <div className="card-header" style={{borderBottom:"1px solid #000029"}}>
               <div className="card-pic">
-                <img src="https://source.unsplash.com/random" alt="random" />
+                <img src={item.postedBy.Photo} alt="" />
               </div>
               <h5>{item.postedBy.userName}</h5>
             </div>
@@ -198,16 +200,20 @@ export default function Home() {
                 item.comments.map((cmnt)=>{
                   return(
                     <p className="com">
-                      <span className='commentBy' style={{fontWeight:"bolder"}}>{cmnt.postedBy.userName} </span>
+                      <span className='commentBy' style={{fontWeight:"bolder"}}>{cmnt.postedBy.userName}{" "} </span>
                       <span className="commentText">{cmnt.comment}</span>
                     </p>
                   )
                 })
               }
+
               <div className="card-content">
+                <div className="caption">
+                  <p>{item.body}</p>
+                </div>
                 <p>{item.likes.length} likes</p>
-                <p>{item.body}</p>
               </div>
+
               <div className="add-comment">
                 <input type="text" placeholder="Add a comment" value={comment} onChange={(e)=>{setComment(e.target.value)}} />
                 <button className='comment' onClick={()=>{makeComment(comment,item._id); toggleComment()}}>Post</button>
@@ -222,5 +228,4 @@ export default function Home() {
       }
       
     </div>
-  )
-}
+  )}

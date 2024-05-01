@@ -1,4 +1,3 @@
-import './App.css';
 import React,{createContext,useState} from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter , Route, Routes } from 'react-router-dom';

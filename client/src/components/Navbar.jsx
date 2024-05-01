@@ -17,9 +17,9 @@ export default function Navbar({login}) {
         <Link to='/'><li>Home</li></Link>
         <Link to='/profile'><li>Profile</li></Link>
         <Link to='/createpost'><li>Create Post</li></Link>
-        <Link style={{marginLeft:"20px"}} to={'/followingpost'}>Following </Link>
+        <Link style={{marginLeft:"15px"}} to={'/followingpost'}>Following </Link>
         <Link to=''>
-          <button className="primaryBtn" onClick={()=>setModalOpen(true)}>logout</button>
+          <button style={{marginLeft:"15px"}} className="primaryBtn" onClick={()=>setModalOpen(true)}>logout</button>
         </Link>
         </>
       ]

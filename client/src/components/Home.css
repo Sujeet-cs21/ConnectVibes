@@ -1,6 +1,5 @@
-
 .card {
-  width: 300px;
+  width: 350px;
   height: 450px;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -50,14 +49,26 @@
 }
 
 .card-content {
-  padding: 10px;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+
 .card-content p {
   margin: 5px 0;
+}
+
+.likes{
+  display: flex;
+  align-items: center;
+}
+
+.caption {
+  color: #333;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .card-content span {
@@ -68,7 +79,7 @@
 .add-comment {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   border-top: 1px solid #ddd;
 }
 
