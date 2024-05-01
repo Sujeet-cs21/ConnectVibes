@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const createPostRoutes = require('./routes/createPost');
+const userProfileRoutes = require('./routes/userProfile');
 const requireLogin = require('./middleware/requireLogin');
 
 const {mongoURL} = require('./keys');
@@ -20,6 +21,7 @@ app.use(cors());
 app.use(express.json());
 app.use(authRoutes);
 app.use(createPostRoutes);
+app.use(userProfileRoutes);
 
 
 

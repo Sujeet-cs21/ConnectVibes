@@ -73,3 +73,39 @@ hr {
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.followBtn {
+  cursor: pointer;
+  font-weight: bolder;
+  padding: 13px 25px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  border: none;
+  color: white;
+  background: #0115eb;
+  transition: all 0.25s ease;
+  margin-left: 20px;
+}
+
+.followBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px -10px #0115eb;
+}
+
+.changePic {
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.changePic div {
+  padding: 15px 80px;
+}
+
+.upload-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: bolder;
+
+  font-size: 15px;
+}
