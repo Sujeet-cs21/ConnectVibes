@@ -154,7 +154,7 @@ export default function MyFolliwngPost() {
               {posts.likes.includes(
                 JSON.parse(localStorage.getItem("user"))._id
               ) ? (
-                <span
+                <span style={{color:"red"}}
                   className="material-symbols-outlined material-symbols-outlined-red"
                   onClick={() => {
                     unlikePost(posts._id);
@@ -220,7 +220,7 @@ export default function MyFolliwngPost() {
             {/* card-header */}
             <div className="card-header" style={{borderBottom:"1px solid #000029"}}>
               <div className="card-pic">
-                <img src={item.postedBy.Photo} alt="" />
+                <img src={item.postedBy.Photo? item.postedBy.Photo : 'https://cdn-icons-png.flaticon.com/128/3177/3177440.png'} alt="" />
               </div>
               <h5>{item.postedBy.userName}</h5>
             </div>
@@ -230,7 +230,7 @@ export default function MyFolliwngPost() {
                 item.comments.map((cmnt)=>{
                   return(
                     <p className="com">
-                      <span className='commentBy' style={{fontWeight:"bolder"}}>{cmnt.postedBy.userName}{" "} </span>
+                      <span className='commentBy' style={{fontWeight:"bolder"}}>{cmnt.postedBy.userName}{": "} </span>
                       <span className="commentText">{cmnt.comment}</span>
                     </p>
                   )

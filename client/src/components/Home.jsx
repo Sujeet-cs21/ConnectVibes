@@ -157,7 +157,7 @@ export default function Home() {
           <div className="likes">
             {posts.likes.includes(JSON.parse(localStorage.getItem("user"))._id) 
             ? 
-            (<span className="material-symbols-outlined material-symbols-outlined-red" onClick={() => {unlikePost(posts._id);}}>
+            (<span style={{color:"red"}} className="material-symbols-outlined material-symbols-outlined-red" onClick={() => {unlikePost(posts._id);}}>
               favorite
               </span>)
               : 
@@ -173,7 +173,7 @@ export default function Home() {
         {/* add comment */}
         <div className="add-comment">
           <input type="text" placeholder="Add a comment" value={comment} onChange={(e)=>{setComment(e.target.value)}} />
-          <button className='comment' onClick={()=>{makeComment(comment,posts._id)}}>Post</button>
+          <button className='comment' onClick={()=>{makeComment(comment,posts._id)}}>Comment</button>
         </div>
       </div>
         )
@@ -190,7 +190,7 @@ export default function Home() {
             {/* card-header */}
             <div className="card-header" style={{borderBottom:"1px solid #000029"}}>
               <div className="card-pic">
-                <img src={item.postedBy.Photo} alt="" />
+                <img src={item.postedBy.Photo? item.postedBy.Photo : picLink} alt="" />
               </div>
               <h5>{item.postedBy.userName}</h5>
             </div>
@@ -200,7 +200,7 @@ export default function Home() {
                 item.comments.map((cmnt)=>{
                   return(
                     <p className="com">
-                      <span className='commentBy' style={{fontWeight:"bolder"}}>{cmnt.postedBy.userName}{" "} </span>
+                      <span className='commentBy' style={{fontWeight:"bolder"}}>{cmnt.postedBy.userName}{": "} </span>
                       <span className="commentText">{cmnt.comment}</span>
                     </p>
                   )

@@ -103,17 +103,16 @@
   background-color: #0069d9;
 }
 
-.material-symbols-outlined{
-  cursor: pointer;
-}
-
 .material-symbols-outlined-red {
-  color: #f44336;
   font-variation-settings:
   'FILL' 1,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 24
+  'opsz' 48
+}
+
+.material-symbols-outlined{
+  cursor: pointer;
 }
 
 .showComment{

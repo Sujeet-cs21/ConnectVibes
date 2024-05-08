@@ -50,17 +50,14 @@
 }
 
 .modalActions {
+  display: flex;
+  justify-content: space-around;
   position: absolute;
   bottom: 2px;
   margin-bottom: 10px;
   width: 100%;
 }
 
-.actionsContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
 .closeBtn {
   cursor: pointer;

@@ -78,9 +78,9 @@ export default function UserProfile() {
   
 
   return (
-    <div className="profile">
+    <div style={{width:"60%", margin:"5px auto",boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',padding:'10px 10px'}} className="profile">
       {/* Profile frame */}
-      <div className="profile-frame">
+      <div style={{}} className="profile-frame">
         {/* profile-pic */}
         <div className="profile-pic">
           <img src={user.Photo ? user.Photo : picLink} alt="" />
@@ -91,7 +91,7 @@ export default function UserProfile() {
             style={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-between",
+              justifyContent: "space-between",marginLeft:'30px'
             }}
           >
             <h1>{user.userName}</h1>

@@ -53,19 +53,23 @@ export default function Signup() {
   return (
     <div className='signup'>
       <div className='form-container'>
-        <img className='signUplogo' src={logo} alt='' />
-        <p>Sign up to Connect</p>
-        <div>
+        <div className="box">
+          <img className='signUplogo' src={logo} alt='' />
+        </div>
+        <p className='box'>Sign up to Connect</p>
+        <div className='box'>
           <input type="text" name='userName' id='userName' value={userName} placeholder='username' onChange={(e)=>{setUsername(e.target.value)}} />
         </div>
-        <div>
+        <div className='box'>
           <input type="email" name="email" id='email' value={email} placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
         </div>
-        <div>
+        <div className='box'>
           <input type="password" name="password" id='password' value={password} placeholder="password" onChange={(e)=>{setPassword(e.target.value)}} />
         </div>
-        <input type="submit" id='submit-btn' value='SignUp' onClick={()=>postData()} />
-        <p>Already Have an account? <Link to="/login">login</Link></p>
+        <div className="box">
+          <input type="submit" id='submit-btn' value='SignUp' onClick={()=>postData()} />
+        </div>
+        <p className='box'>Already Have an account? <Link to="/login">login</Link></p>
       </div>
     </div>
   )
