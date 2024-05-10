@@ -40,8 +40,8 @@ export default function Profile() {
     })
     .then(res => res.json())
     .then(result => {
-      if (result.post) {
-        setPic(result.post);
+      if (result.posts) {
+        setPic(result.posts);
       }
       setUser(result.user);
     })

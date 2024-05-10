@@ -61,8 +61,8 @@ export default function UserProfile() {
         console.log(result);
         setUser(result.user);
         // Check if result.post is defined before setting the state
-        if (result.post) {
-          setPosts(result.post);
+        if (result.posts) {
+          setPosts(result.posts);
         } else {
           setPosts([]);
         }

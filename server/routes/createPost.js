@@ -95,24 +95,32 @@ router.put('/comment',requireLogin, (req, res) => {
 });
 
 //delete-post
-router.delete('/deletePost/:postId',requireLogin, (req, res) => {
-	Post.findOne({ _id: req.params.postId })
-		.populate("postedBy", "_id")
-		.then((post, err) => {
-		if (err || !post) {
-			return res.status(422).json({ error: err });
-		}
-		if (post.postedBy._id.toString() === req.user._id.toString()) {
-		    post.remove()
-			.then(result => {
-				return res.json({ message: "Successfully deleted" });
-			})
-			.catch(err => {
-				console.log(err);
-			});
-		}
-	})
-})
+router.delete('/deletePost/:postId', requireLogin, (req, res) => {
+    Post.findOne({ _id: req.params.postId })
+        .populate("postedBy", "_id")
+        .then((post) => {
+            if (!post) {
+                return res.status(422).json({ error: "Post not found" });
+            }
+            if (post.postedBy._id.toString() === req.user._id.toString()) {
+                post.remove()
+                    .then(() => {
+                        return res.json({ message: "Successfully deleted" });
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                        return res.status(500).json({ error: "Failed to delete post" });
+                    });
+            } else {
+                return res.status(401).json({ error: "Unauthorized" });
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            return res.status(500).json({ error: "Internal Server Error" });
+        });
+});
+
 
 // to show following post
 router.get("/myfollwingpost", requireLogin, (req, res) => {
